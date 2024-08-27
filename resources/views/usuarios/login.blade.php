@@ -6,11 +6,7 @@
 
 @section('conteudo')
 
-@if(session('erro'))
-    <div style="background-color:red;color:white">
-    {{ session('erro') }}
-    </div>
-@endif
+
 
 @if($errors->any())
 <div>
@@ -21,13 +17,22 @@
 </div>  
 @endif
 
-<form method="post" action="{{route('login')}}">
+<form method="post" action="{{route('login')}}" class="p-10 bg-white rounded shadow-xl">
     @csrf
-    <input type="text" name="username" placeholder="Usuário">
-    <br>
-    <input type="password" name="password" placeholder="Senha">
-    <br>
-    <input type="submit" value="Entrar">
+    <div class="">
+        <label class="block text-sm text-gray-600" for="username">Usuário</label>
+        <input class="w-full px-5 py-1 text-gray-700 bg-gray-200 rounded" id="usuario" name="username" type="text" required="" placeholder="Usuário" aria-label="Usuário">
+    </div>
+    <div class="mt-2">
+        <label class="block text-sm text-gray-600" for="password">Senha</label>
+        <input class="w-full px-5  py-4 text-gray-700 bg-gray-200 rounded" id="password" name="password" type="text" required="" placeholder="Senha" aria-label="password">
+    </div>
+    <div class="mt-6">
+        <button class="px-4 py-1 text-white font-light tracking-wider bg-gray-900 rounded" type="submit">Enviar</button>
+    </div>
+    
+    
+   
 </form>
 
 @endsection
