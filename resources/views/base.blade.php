@@ -157,7 +157,7 @@
                           </div>
                         @endif
                     </div>
-                <div class="leading-loose">
+                <div class=" w-2/3 leading-loose ">
                 @yield('conteudo')
                 </div>
     
