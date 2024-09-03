@@ -21,7 +21,7 @@
                             <i class="fas fa-list mr-3"></i> Cadastre seu animal
                         </p>
                         <div class="leading-loose">
-                            <form class="p-10 bg-white rounded shadow-xl" method="post" action="{{ route('animais.gravar') }}">
+                            <form class="p-10 bg-white rounded shadow-xl" method="post" enctype="multipart/form-data" action="{{ route('animais.gravar') }}">
                             @csrf
                                 <div class="">
                                     <label class="block text-sm text-gray-600" for="name">Name</label>
@@ -30,6 +30,10 @@
                                 <div class="mt-2">
                                     <label class="block text-sm text-gray-600" for="email">Idade</label>
                                     <input class="w-full px-5  py-4 text-gray-700 bg-gray-200 rounded"  name="idade" type="number" placeholder="Idade do animal" aria-label="Idade" value="{{ old('idade') }}">
+                                </div>
+                                 <div class="mt-2">
+                                    <label class="block text-sm text-gray-600" for="email">Imagem</label>
+                                    <input class="w-full px-5  py-4 text-gray-700 bg-gray-200 rounded" id="imagem"  name="imagem" type="file" placeholder="Imagem" aria-label="Idade" value="{{ old('imagem') }}">
                                 </div>
                                 <div class="mt-6">
                                     <button class="px-4 py-1 text-white font-light tracking-wider bg-gray-900 rounded" value="Gravar" type="submit">Gravar</button>
