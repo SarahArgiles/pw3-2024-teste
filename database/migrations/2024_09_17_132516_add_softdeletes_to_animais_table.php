@@ -11,20 +11,17 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('animais', function (Blueprint $table) {
-            $table->id();
-            $table->string('nome');
-            $table->smallInteger('idade')->unsigned();
-            $table->timestamps();
-            
+        Schema::table('animais', function (Blueprint $table) {
+            $table->softDeletes();
         });
     }
 
-    /**
-     * Reverse the migrations.
-     */
+  
     public function down(): void
     {
-        Schema::dropIfExists('animais');
+        Schema::table('animais', function (Blueprint $table) {
+            $table->dropSoftDeletes();
+            
+        });
     }
 };
